@@ -34,3 +34,20 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar { //plain.jar는 코드만 jar로 묶는 거기때문에 plain.jar생성 비활성화
+	enabled = false // plain.jar 생성 완전히 비활성화}
+//	파이프라인에서 보면 AppName을 가져오는 부분이 있었는데
+//	getAppName에서 이름을 가져온다.
+	tasks.register('getAppName') {
+		doLast {
+			println "${rootProject.name}"
+		}
+	}
+//	앱 버전을 가져온다.
+	tasks.register('getAppVersion') {
+		doLast {
+			println "${project.version}"
+		}
+	}
+}
