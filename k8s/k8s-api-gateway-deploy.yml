@@ -10,10 +10,18 @@ containers:
     volumeMounts:
       - mountPath: /etc/config
         name: api-gateway-config-volume
-    volumes:
-      - name: api-gateway-config-volume
-        configMap:
-          name: api-gateway-config
-          items:
-            - key: application-dev.yml
-              path: application-dev.yml
+      - mountPath: /etc/secret
+        name: api-gateway-secret-volume
+volumes:
+  - name: api-gateway-config-volume
+    configMap:
+      name: api-gateway-config
+      items:
+        - key: application-dev.yml
+          path: application-dev.yml
+  - name: api-gateway-secret-volume
+    secret:
+      secretName: api-gateway-secret
+      items:
+        - key: application-secret.yml
+          path: application-secret.yml
