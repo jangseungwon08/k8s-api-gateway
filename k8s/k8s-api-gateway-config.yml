@@ -15,11 +15,17 @@ data:
                 uri: http://k8s-backend-user-service:8080
                 predicates:
                   - Path=/api/user/**
+                filters:
+                  - AddAuthenticationHeader
               - id: backend-alim
                 uri: http://k8s-backend-alim-service:8080
                 predicates:
                   - Path=/api/alim/**
+                filters:
+                  - AddAuthenticationHeader
               - id: backend-post
                 uri: http://k8s-backend-post-service:8080
                 predicates:
                   - Path=/api/post/**
+                filters:
+                  - AddAuthenticationHeader
