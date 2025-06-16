@@ -10,19 +10,19 @@ spring:
             predicates:
               - Path=/api/user/**
             filters:
-              - AddAuthenticationHeader
+              - addAuthenticationHeader
           - id: backend-alim
             uri: http://k8s-backend-alim-service:8080
             predicates:
               - Path=/api/alim/**
             filters:
-              - AddAuthenticationHeader
+              - addAuthenticationHeader
           - id: backend-post
             uri: http://k8s-backend-post-service:8080
             predicates:
               - Path=/api/post/**
             filters:
-              - AddAuthenticationHeader
+              - addAuthenticationHeader
 jwt:
   header: Authorization
   secret-key: AADfaskllew32dsfasdTG764Gdslkj298GsWg86G
