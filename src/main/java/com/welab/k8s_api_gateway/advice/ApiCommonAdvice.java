@@ -29,7 +29,7 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
     public ApiResponseDto<String> handleException(Exception e) {
-        log.info("게이트웨이 통과되지 않았습니다.");
+        log.error("게이트웨이 통과되지 않았습니다.", e);
         return ApiResponseDto.createError(
                 "serverError",
                 "서버 에러입니다.");
