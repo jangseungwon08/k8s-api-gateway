@@ -39,6 +39,7 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({NoResourceFoundException.class})
     public ApiResponseDto<String> handleNoResourceFoundException(NoResourceFoundException e){
+        e.printStackTrace();
         return ApiResponseDto.createError(
                 "No Resource",
                 "잘못된 URL입니다."
